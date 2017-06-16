@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme-head-only-path-config xmlns="http://www.intra-mart.jp/theme/theme-head-only-path-config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.intra-mart.jp/theme/theme-head-only-path-config theme-head-only-path-config.xsd">
+  <path>/trip/detail</path>
+  <path>trip/detail</path>
+  <path>/item/detail</path>
+  <path>item/detail</path>
+</theme-head-only-path-config>

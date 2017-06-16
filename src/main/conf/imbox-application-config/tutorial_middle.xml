@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 追加したいアプリケーションに関する設定ファイル
+    applicationCd：アプリケーションの識別ID
+    applicationName：アプリケーション表示名のプロパティID
+    iconPath：アプリケーションの表示画像のパス
+    messageTypeCd：メッセージの表示形式種別
+ -->
+<tns:imbox-application-config
+    xmlns:tns="http://www.intra-mart.jp/imbox/imbox-application-config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.intra-mart.jp/imbox/imbox-application-config ../../schema/imbox-application-config.xsd ">
+  <tns:application applicationCd="tutorial" applicationName="TUTORIAL.IMBOX.APPLICATION" iconPath="" messageTypeCd="MESSAGE_TYPE_MESSAGE"/>
+</tns:imbox-application-config>

@@ -1,0 +1,44 @@
+<included>
+	
+    <appender name="LOG_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+    		<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5level %logger{255} - %msg%n</pattern>
+    	</layout>
+    </appender>
+
+	<appender name="CUSTOMER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${im.log}/platform/report/customer.log</file>
+		<append>true</append>
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${im.log}/platform/report/customer%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>10MB</maxFileSize>
+		</triggeringPolicy>
+		
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="jp.co.intra_mart.common.platform.log.layout.OutputStackTracePatternLayout">
+				<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5level %logger{255} - %msg%n</pattern>
+				<enableOutputStackTrace>true</enableOutputStackTrace>
+				<stackTraceDir>${im.log}/platform/exception/</stackTraceDir>
+				<stackTraceFilename>'exception_'yyyy-MM-dd_HH-mm-ss'_%logId.log'</stackTraceFilename>
+			</layout>
+			<immediateFlush>true</immediateFlush>
+		</encoder>
+	</appender>
+	
+	<logger name="CUSTOMER_LOG_INFO" additivity="false">
+		<level value="info" />
+		<appender-ref ref="LOG_CONSOLE" />
+	</logger>
+
+	<logger name="CUSTOMER_LOG_DEBUG" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="CUSTOMER_FILE" />
+	</logger>
+
+</included>

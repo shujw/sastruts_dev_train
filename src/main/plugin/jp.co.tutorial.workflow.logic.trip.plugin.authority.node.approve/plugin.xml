@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <extension point="jp.co.intra_mart.workflow.plugin.authority.node.approve" >
+
+        <authority
+            name="%jp.co.tutorial.plugin.authority.node.approve.trip_total.script"
+            id="jp.co.tutorial.plugin.authority.node.approve.trip_total.script"
+            version="8.0.0"
+            rank="910"
+            enable="false">
+            <configPage>
+                <script pagePath="sample/im_workflow/trip/plugin/authority/item_total/itemTotalConfig">
+                    <parameter key="pluginName" value="IMW.TRP.031" />
+                </script>
+            </configPage>
+            <extend>
+                <script file="sample/im_workflow/trip/plugin/authority/item_total/WorkflowAuthorityExecEventListener" />
+            </extend>
+        </authority>
+
+        <authority
+            name="%jp.co.tutorial.plugin.authority.node.approve.trip_total.javaee"
+            id="jp.co.tutorial.plugin.authority.node.approve.trip_total.javaee"
+            version="8.0.0"
+            rank="920"
+            enable="true">
+            <configPage>
+                <url path="trip/plugin/index/">
+                    <parameter key="tripName" value="IMW.TRP.031" />
+                </url>
+            </configPage>
+            <extend>
+                <java class="jp.co.tutorial.workflow.logic.trip.TripPluginLogic" />
+            </extend>
+        </authority>
+
+    </extension>
+</plugin>
